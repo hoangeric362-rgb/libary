@@ -1,0 +1,344 @@
+/* --- Chủ đề "Bình minh" (Sunrise) --- */
+
+@keyframes sunrise-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+:root {
+    /* Màu sắc chủ đề "Sunrise" */
+    --theme-color-main: #ff7f50; /* Coral - Màu nhấn chính */
+    --theme-color-dark: #c94b2a; /* Coral sẫm */
+    --text-dark: #3d405b;      /* Xám đậm - Màu chữ chính */
+    --text-heading: #d95628;  /* Cam cháy - Màu tiêu đề */
+
+    /* Nền Sunrise động */
+    --bg-sunrise: linear-gradient(125deg, 
+        #fff3b0, /* Vàng kem */
+        #ffc837, /* Vàng nắng */
+        #ff8c00, /* Cam đậm */
+        #e0f2fe  /* Xanh da trời nhạt */
+    );
+
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --transition-speed: 0.6s;
+    --transition-curve: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* CSS Reset */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-primary);
+    background: var(--bg-sunrise);
+    background-size: 400% 400%;
+    animation: sunrise-gradient 25s ease infinite;
+    color: var(--text-dark);
+    overflow: hidden;
+    height: 100vh;
+    perspective: 1200px;
+}
+
+/* Presentation Container */
+#presentation { width: 100vw; height: 100vh; position: relative; transform-style: preserve-3d; }
+
+/* Slide Styling cho chủ đề sáng */
+.slide {
+    width: 85%;
+    height: 85%;
+    position: absolute;
+    top: 7.5%;
+    left: 7.5%;
+    
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12); /* Đổ bóng nhẹ nhàng */
+    
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    transform-origin: center center;
+    transition: transform var(--transition-speed) var(--transition-curve),
+                opacity var(--transition-speed) ease;
+    z-index: 1;
+    opacity: 0;
+}
+
+/* Các trạng thái của slide (giữ nguyên) */
+.slide[data-state="previous"] { transform: translateX(-100%) rotateY(-30deg) scale(0.9); opacity: 0; }
+.slide[data-state="active"] { transform: translateX(0) rotateY(0) scale(1); opacity: 1; z-index: 2; }
+.slide[data-state="next"] { transform: translateX(100%) rotateY(30deg) scale(0.9); opacity: 0; }
+
+/* Slide Content */
+.slide h1, .slide h2, .slide h3 {
+    color: var(--text-heading);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--theme-color-main);
+}
+
+.slide .slide-title {
+    font-size: 2.8em;
+    font-weight: 900;
+    color: var(--text-heading);
+    text-align: left;
+    border-bottom: none;
+    margin-bottom: 30px;
+}
+
+.slide-content { width: 100%; flex-grow: 1; overflow-y: auto; padding-right: 20px; }
+.slide-content::-webkit-scrollbar { width: 8px; }
+.slide-content::-webkit-scrollbar-thumb { background-color: var(--theme-color-main); border-radius: 4px; }
+.slide-content::-webkit-scrollbar-track { background-color: rgba(0, 0, 0, 0.05); }
+
+.slide p, .slide ul li { font-size: 1.15em; line-height: 1.8; margin-bottom: 18px; }
+.slide ul { margin-left: 25px; }
+.slide ul li::marker { color: var(--theme-color-main); }
+
+.slide code {
+    font-family: "SF Mono", "Fira Code", "Courier New", monospace;
+    background-color: #fff0db;
+    border: 1px solid #ffdd99;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    color: #b35a00;
+}
+
+/* Title Slide Specifics */
+.title-slide { justify-content: center; align-items: center; text-align: center; }
+.title-slide h1 { font-size: 4em; color: var(--text-heading); border: none; font-weight: 900;}
+.title-slide h2 { font-size: 2.2em; color: var(--theme-color-main); border: none; font-weight: 700; }
+.instructor-info {
+    margin-top: 50px; font-size: 1.5em; line-height: 1.9;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px 40px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+/* Team Slide Specifics */
+.team-slide-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.member-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(217, 86, 40, 0.2);
+}
+
+.avatar-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.member-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--theme-color-main);
+    background-color: #f0f0f0;
+    object-fit: cover; /* Đảm bảo ảnh đại diện vừa vặn */
+    transition: filter 0.3s ease;
+}
+
+.avatar-wrapper:hover .member-avatar {
+    filter: brightness(0.7);
+}
+
+.upload-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.avatar-wrapper:hover .upload-label,
+.flowchart-wrapper:hover .upload-label {
+    opacity: 1;
+}
+
+.avatar-upload-input {
+    display: none; /* Ẩn input file mặc định */
+}
+
+.member-info h3 {
+    color: var(--text-heading);
+    font-size: 1.6em;
+    margin: 0;
+    border: none;
+}
+
+.member-info p {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    margin: 5px 0 0;
+}
+
+/* Dual Flowchart Slide - Vertical Layout */
+.dual-flowchart-content {
+    display: flex;
+    flex-direction: row; /* Change to row */
+    gap: 40px; /* Increase gap */
+    width: 100%;
+    height: 100%;
+}
+
+.flowchart-container {
+    flex: 1; /* Chia sẻ không gian đều nhau */
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Fix lỗi flexbox trong một số trình duyệt */
+}
+
+.flowchart-container h3 {
+    border-bottom: none;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.4em;
+    flex-shrink: 0;
+}
+
+.flowchart-wrapper {
+    flex-grow: 1;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 3px dashed var(--theme-color-main);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.flowchart-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+    position: absolute;
+}
+
+.flowchart-image.has-image {
+    display: block;
+}
+
+.flowchart-upload-label {
+    cursor: pointer;
+    padding: 15px 25px;
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 1.1em;
+    transition: all 0.3s;
+    z-index: 2;
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.flowchart-wrapper.has-image .flowchart-upload-label {
+    opacity: 0;
+}
+
+.flowchart-wrapper.has-image:hover .flowchart-upload-label {
+    opacity: 1;
+}
+
+/* Table Styling */
+table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 20px; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+th, td { padding: 14px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid #e2e8f0; }
+th { background-color: #f8fafc; color: #475569; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+td { background-color: #ffffff; }
+tbody tr:last-child td { border-bottom: none; }
+
+/* Highlight colors */
+.highlight-good { color: #22c55e; font-weight: 700; }
+.highlight-bad { color: #ef4444; font-weight: 700; }
+.highlight-neutral { color: #f59e0b; font-weight: 700; }
+
+/* Thank You Slide Specifics */
+.thank-you-slide h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 5.5em;
+    color: var(--theme-color-main);
+    text-shadow: 2px 2px 0px var(--theme-color-dark), 
+                 4px 4px 8px rgba(0,0,0,0.2);
+    border: none;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    color: var(--text-dark);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    width: 50px; height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: all 0.2s ease-out;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.nav-btn:hover {
+    background: var(--theme-color-main);
+    box-shadow: 0 10px 25px rgba(255, 127, 80, 0.4);
+    transform: translateY(-50%) scale(1.1);
+    color: white;
+}
+
+#prevBtn { left: 30px; }
+#nextBtn { right: 30px; }
+
+/* Slide Counter */
+#slideCounter {
+    position: fixed; bottom: 25px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(61, 64, 91, 0.8);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: 600;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}

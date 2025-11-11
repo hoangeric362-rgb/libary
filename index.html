@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo: Quản lý thư viện sách điện tử</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="presentation">
+
+        <section class="slide title-slide">
+            <h1>BÁO CÁO ĐỒ ÁN CUỐI KỲ</h1>
+            <h2>MÔN: CẤU TRÚC DỮ LIỆU VÀ GIẢI THUẬT</h2>
+            
+            <h2 style="margin-top: 50px; font-size: 2.2em; color: var(--text-heading);">ĐỀ TÀI: Quản lý thư viện sách điện tử</h2>
+            
+            <div class="instructor-info">
+                <strong>GVHD:</strong> Đoàn Thiện Minh
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">NHÓM 5 - SINH VIÊN THỰC HIỆN</h2>
+            <div class="slide-content team-slide-content">
+                <div class="member-card">
+                    <div class="avatar-wrapper">
+                        <img src="https://api.dicebear.com/8.x/miniavs/svg?seed=GiaHuy" alt="Avatar Vũ Gia Huy" class="member-avatar" id="avatar-huy">
+                        <label for="upload-huy" class="upload-label">Tải ảnh</label>
+                        <input type="file" id="upload-huy" accept="image/*" class="avatar-upload-input">
+                    </div>
+                    <div class="member-info">
+                        <h3>Vũ Gia Huy</h3>
+                        <p>MSSV: 124001657</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="avatar-wrapper">
+                        <img src="https://api.dicebear.com/8.x/miniavs/svg?seed=NgocHoang" alt="Avatar Trần Ngọc Hoàng" class="member-avatar" id="avatar-hoang">
+                        <label for="upload-hoang" class="upload-label">Tải ảnh</label>
+                        <input type="file" id="upload-hoang" accept="image/*" class="avatar-upload-input">
+                    </div>
+                    <div class="member-info">
+                        <h3>Trần Ngọc Hoàng</h3>
+                        <p>MSSV: 124000463</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="avatar-wrapper">
+                        <img src="https://api.dicebear.com/8.x/miniavs/svg?seed=HoangSon" alt="Avatar Nguyễn Hoàng Sơn" class="member-avatar" id="avatar-son">
+                        <label for="upload-son" class="upload-label">Tải ảnh</label>
+                        <input type="file" id="upload-son" accept="image/*" class="avatar-upload-input">
+                    </div>
+                    <div class="member-info">
+                        <h3>Nguyễn Hoàng Sơn</h3>
+                        <p>MSSV: 124001705</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                     <div class="avatar-wrapper">
+                        <img src="https://api.dicebear.com/8.x/miniavs/svg?seed=UyVu" alt="Avatar Đỗ Nguyễn Uy Vũ" class="member-avatar" id="avatar-vu">
+                        <label for="upload-vu" class="upload-label">Tải ảnh</label>
+                        <input type="file" id="upload-vu" accept="image/*" class="avatar-upload-input">
+                    </div>
+                    <div class="member-info">
+                        <h3>Đỗ Nguyễn Uy Vũ</h3>
+                        <p>MSSV: 124001626</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">1. GIỚI THIỆU ĐỀ TÀI</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">1.1. Bối cảnh & Lý do chọn đề tài</h3>
+                <ul>
+                    <li><strong>Thời đại số hóa:</strong> Yêu cầu quản lý lượng lớn tài nguyên (sách) một cách hiệu quả.</li>
+                    <li><strong>Vấn đề của cấu trúc tuyến tính:</strong> Với <code>List</code> hoặc <code>Array</code>, các thao tác tìm kiếm, cập nhật có độ phức tạp <code class="highlight-bad">O(N)</code>.</li>
+                    <li><strong>Thách thức:</strong> Khi N lớn (hàng trăm ngàn đầu sách), <code class="highlight-bad">O(N)</code> gây lãng phí tài nguyên và thời gian chờ đợi.</li>
+                    <li><strong>Giải pháp:</strong> Sử dụng cấu trúc phi tuyến tính <strong>Hash Table</strong> (<code>Dictionary</code> trong C#).</li>
+                    <li><strong>Ưu điểm:</strong> Hash Table cung cấp độ phức tạp trung bình <code class="highlight-good">O(1)</code> cho các thao tác Thêm, Xóa, Tìm kiếm, Cập nhật.</li>
+                </ul>
+                <p><strong>Kết luận:</strong> Nhóm chọn đề tài này để triển khai và chứng minh tính ưu việt về hiệu suất của Hash Table trong bài toán quản lý thực tế.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">1. GIỚI THIỆU ĐỀ TÀI</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">1.2. Mục tiêu</h3>
+                <ul>
+                    <li>Xây dựng một mô hình quản lý dữ liệu sách (Book) <strong>tối ưu về tốc độ</strong>.</li>
+                    <li><strong>Chứng minh</strong> sự khác biệt về hiệu suất (tốc độ tải, truy xuất) giữa <strong>Hash Table</strong> và cấu trúc tuyến tính qua thử nghiệm dữ liệu lớn.</li>
+                    <li>Thiết kế giao diện <strong>Console</strong> đơn giản, cho phép người dùng thực hiện các chức năng <strong>CRUD</strong> cơ bản (Create, Read, Update, Delete).</li>
+                    <li>Đánh giá khả năng <strong>mở rộng</strong> của Hash Table khi xử lý dữ liệu lớn (trên 10.000 bản ghi).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">1. GIỚI THIỆU ĐỀ TÀI</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">1.3. Phạm vi, giới hạn</h3>
+                <ul>
+                    <li><strong>Phạm vi:</strong> Quản lý thông tin sách (BookID, Title, Author...) và các thao tác quản trị.</li>
+                    <li><strong>Giới hạn:</strong>
+                        <ul>
+                            <li>Chỉ sử dụng <strong>Console App</strong> (không có GUI).</li>
+                            <li>Chỉ tập trung vào <strong>Hash Table / Dictionary</strong>.</li>
+                            <li>Dữ liệu lưu trữ cục bộ (<strong>file JSON</strong>), không dùng DBMS.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 style="border-bottom: none; color: #333; margin-top: 30px;">1.4. Phương pháp thực hiện</h3>
+                <ul>
+                    <li><strong>Nghiên cứu lý thuyết:</strong> Phân tích độ phức tạp thời gian <code>O(T)</code>.
+                        <ul>
+                            <li>Hash Table: <code class="highlight-good">O(1)</code></li>
+                            <li>List / Array: <code class="highlight-bad">O(N)</code></li>
+                        </ul>
+                    </li>
+                    <li><strong>Lập trình:</strong> Sử dụng <strong>C# (.NET Core)</strong> và thư viện <strong>Newtonsoft.Json</strong>.</li>
+                    <li><strong>Thử nghiệm:</strong> Tạo <strong>10.000+</strong> sách giả để đo lường thời gian thực thi.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="slide">
+            <h2 class="slide-title">2. PHÂN TÍCH YÊU CẦU</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">2.1 & 2.2. Khảo sát và Thu thập</h3>
+                <ul>
+                    <li>Hệ thống mô phỏng kho dữ liệu thư viện cơ bản.</li>
+                    <li>Yêu cầu nghiệp vụ cốt lõi: Mỗi cuốn sách cần được truy cập <strong>nhanh chóng</strong> bằng một mã định danh duy nhất (<code>BookID</code>).</li>
+                    <li>Yêu cầu bắt buộc: Tốc độ truy xuất dữ liệu (tìm theo ID) phải <strong>gần như tức thì</strong>.</li>
+                </ul>
+                <h3 style="border-bottom: none; color: #333; margin-top: 30px;">2.4. Mô hình phân tích dữ liệu</h3>
+                <ul>
+                    <li><strong>Thực thể chính:</strong> <code>Book</code> (Sách).</li>
+                    <li><strong>Khóa chính:</strong> <code>BookID</code> (string) &rarr; Sử dụng làm <strong>Key</strong> trong Hash Table.</li>
+                    <li><strong>Cấu trúc dữ liệu trong bộ nhớ:</strong>
+                        <br>
+                        <code>Dictionary&lt;string, Book&gt; libraryData;</code>
+                        <ul>
+                            <li><strong>Key:</strong> <code>BookID</code> (string)</li>
+                            <li><strong>Value:</strong> <code>Book</code> (object)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">2. PHÂN TÍCH YÊU CẦU</h2>
+            <div class="slide-content" style="padding-top: 20px;">
+                <h3 style="border-bottom: none; color: #333;">2.3. Yêu cầu chức năng (FNs)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã</th>
+                            <th>Tên Chức năng</th>
+                            <th>Mô tả chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FN1</strong></td>
+                            <td>Thêm sách mới</td>
+                            <td>Cho phép nhập thông tin sách và tự động tạo BookID.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FN2</strong></td>
+                            <td>Cập nhật sách</td>
+                            <td>Cập nhật thông tin sách dựa trên BookID (Yêu cầu <code class="highlight-good">O(1)</code>).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FN3</strong></td>
+                            <td>Xóa sách</td>
+                            <td>Xóa sách khỏi hệ thống dựa trên BookID.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FN4</strong></td>
+                            <td>Tìm kiếm sách</td>
+                            <td>Tìm kiếm theo BookID (Yêu cầu <code class="highlight-good">O(1)</code>) hoặc theo Tên/Tác giả (Chấp nhận <code class="highlight-neutral">O(N)</code>).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FN5</strong></td>
+                            <td>Hiển thị sách</td>
+                            <td>Hiển thị toàn bộ danh sách sách (<code>Dictionary.Values</code>).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FN6</strong></td>
+                            <td>Quản lý Dữ liệu Lớn</td>
+                            <td>Chức năng tạo dữ liệu giả tự động để thử nghiệm hiệu năng.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">2. PHÂN TÍCH YÊU CẦU</h2>
+            <div class="slide-content" style="padding-top: 20px;">
+                <h3 style="border-bottom: none; color: #333;">2.3. Yêu cầu phi chức năng (NFRs)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã</th>
+                            <th>Tên Yêu cầu</th>
+                            <th>Chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>NFR1</strong></td>
+                            <td>Hiệu suất</td>
+                            <td>Thao tác Tìm kiếm, Thêm, Xóa theo ID phải đạt độ phức tạp <code class="highlight-good">O(1)</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NFR2</strong></td>
+                            <td>Độ tin cậy</td>
+                            <td>Dữ liệu phải được lưu trữ vĩnh viễn (JSON) và tải lại chính xác khi khởi động.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NFR3</strong></td>
+                            <td>Khả năng mở rộng</td>
+                            <td>Hệ thống phải xử lý hiệu quả khi số lượng sách vượt quá <strong>10.000</strong> bản ghi.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">3. THIẾT KẾ HỆ THỐNG</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">3.1. Kiến trúc hệ thống (3 Lớp)</h3>
+                <ul>
+                    <li><strong>Lớp Giao diện (Program):</strong>
+                        <ul>
+                            <li>Xử lý tương tác người dùng qua Console (Menu, Input/Output).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lớp Logic (LibraryManager):</strong>
+                        <ul>
+                            <li>Chứa các phương thức nghiệp vụ (CRUD, Search, Load/Save).</li>
+                            <li>Tương tác trực tiếp với <code>Dictionary</code> trong bộ nhớ.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lớp Dữ liệu (Book):</strong>
+                        <ul>
+                            <li>Định nghĩa cấu trúc dữ liệu của đối tượng Sách.</li>
+                        </ul>
+                    </li>
+                </ul>
+                 <h3 style="border-bottom: none; color: #333; margin-top: 30px;">3.2. Xây dựng dữ liệu khởi tạo</h3>
+                 <p>Toàn bộ dữ liệu được lưu trong <strong>một tệp JSON duy nhất</strong> (<code>library_data.json</code>) dưới dạng Key-Value.</p>
+                 <p><strong>Lý do:</strong> Tối ưu hóa I/O. Chỉ cần 1 thao tác Đọc/Ghi duy nhất thay vì hàng chục nghìn thao tác file nhỏ lẻ.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title" style="text-align: left;">Thiết kế lưu đồ (Flowchart)</h2>
+            <div class="slide-content dual-flowchart-content">
+                <div class="flowchart-container">
+                    <h3>Lưu đồ Tổng quát:</h3>
+                    <div class="flowchart-wrapper" id="wrapper-general">
+                        <img src="" alt="Lưu đồ tổng quát" class="flowchart-image" id="flowchart-image-general">
+                        <label for="upload-flowchart-general" class="upload-label flowchart-upload-label">Tải ảnh lên</label>
+                        <input type="file" id="upload-flowchart-general" accept="image/*" class="avatar-upload-input">
+                    </div>
+                </div>
+                <div class="flowchart-container">
+                    <h3>Lưu đồ Chi tiết (Thêm Sách):</h3>
+                    <div class="flowchart-wrapper vertical" id="wrapper-detail">
+                        <img src="" alt="Lưu đồ chi tiết" class="flowchart-image" id="flowchart-image-detail">
+                        <label for="upload-flowchart-detail" class="upload-label flowchart-upload-label">Tải ảnh dọc</label>
+                        <input type="file" id="upload-flowchart-detail" accept="image/*" class="avatar-upload-input">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="slide">
+            <h2 class="slide-title">3. THIẾT KẾ HỆ THỐNG</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">3.3. Thiết kế chức năng (Logic & Độ phức tạp)</h3>
+                <ul>
+                    <li><strong>Tải dữ liệu (LoadAllBooks):</strong>
+                        <ul>
+                            <li>Đọc file <code>library_data.json</code> &rarr; Deserialize vào <code>Dictionary</code>.</li>
+                            <li>Độ phức tạp: <code class="highlight-neutral">O(F)</code> (F là kích thước file), thực hiện <strong>một lần</strong> khi khởi động.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Thêm / Xóa / Cập nhật (theo ID):</strong>
+                        <ul>
+                            <li>Sử dụng phương thức tích hợp của <code>Dictionary</code>:
+                                <br><code>currentLibrary.Add(key, value)</code>
+                                <br><code>currentLibrary.Remove(key)</code>
+                                <br><code>currentLibrary.TryGetValue(key, out Book)</code>
+                            </li>
+                            <li>Độ phức tạp lý thuyết: <code class="highlight-good">O(1)</code>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Tìm kiếm (SearchBooks theo Tên/Tác giả):</strong>
+                        <ul>
+                            <li>Phải duyệt qua <code>Dictionary.Values</code>.</li>
+                            <li>Độ phức tạp: <code class="highlight-bad">O(N)</code> (nhưng nhanh vì duyệt trong bộ nhớ).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lưu dữ liệu (SaveAllBooks):</strong>
+                        <ul>
+                            <li>Serialize <code>Dictionary</code> &rarr; Ghi đè toàn bộ file JSON.</li>
+                            <li>Độ phức tạp: <code class="highlight-bad">O(N)</code> (Đây là một "nút thắt cổ chai").</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="slide">
+            <h2 class="slide-title">4. TRIỂN KHAI VÀ KẾT QUẢ</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">4.1. Công cụ, môi trường phát triển</h3>
+                <ul>
+                    <li><strong>Ngôn ngữ lập trình:</strong> C# (.NET Core 8)</li>
+                    <li><strong>IDE:</strong> Visual Studio / VS Code</li>
+                    <li><strong>Thư viện ngoài:</strong> Newtonsoft.Json (Quản lý Serialize/Deserialize)</li>
+                    <li><strong>Cấu trúc dữ liệu chính:</strong> <code>Dictionary&lt;string, Book&gt;</code> (Triển khai của Hash Table trong C#)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">4. TRIỂN KHAI VÀ KẾT QUẢ</h2>
+            <div class="slide-content" style="padding-top: 20px;">
+                <h3 style="border-bottom: none; color: #333;">4.2. Tiến độ thực hiện</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Giai đoạn</th>
+                            <th>Nội dung công việc</th>
+                            <th>Thời gian</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Giai đoạn 1</strong></td>
+                            <td>Phân tích yêu cầu và thiết kế cấu trúc dữ liệu.</td>
+                            <td>3 ngày</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Giai đoạn 2</strong></td>
+                            <td>Xây dựng lớp Book và LibraryManager (chức năng Load/Save).</td>
+                            <td>3 ngày</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Giai đoạn 3</strong></td>
+                            <td>Triển khai các chức năng CRUD cơ bản và giao diện Console.</td>
+                            <td>4 ngày</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Giai đoạn 4</strong></td>
+                            <td>Xây dựng chức năng Generate Large Data và thử nghiệm hiệu suất.</td>
+                            <td>3 ngày</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Giai đoạn 5</strong></td>
+                            <td>Hoàn thiện báo cáo và kiểm tra cuối cùng.</td>
+                            <td>3 ngày</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">4. TRIỂN KHAI VÀ KẾT QUẢ</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">4.3. Các chức năng đã cài đặt</h3>
+                <ul>
+                    <li>Tất cả các chức năng từ FN1 đến FN6 đã được cài đặt thành công.</li>
+                    <li>Chức năng <strong>Tạo Sách Tự động</strong> (Generate Large Data) đã tạo thành công <strong>10.000 bản ghi</strong> và lưu trữ ổn định.</li>
+                    <li>Giao diện Console được tùy chỉnh (màu sắc, căn chỉnh) để cải thiện trải nghiệm.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="slide">
+            <h2 class="slide-title">4. TRIỂN KHAI VÀ KẾT QUẢ</h2>
+            <div class="slide-content" style="padding-top: 20px;">
+                <h3 style="border-bottom: none; color: #333;">4.4. Kết quả kiểm thử (Với 10.000 bản ghi)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Thao tác</th>
+                            <th>Cấu trúc dữ liệu</th>
+                            <th>Thời gian thực hiện (TB)</th>
+                            <th>Độ phức tạp (Lý thuyết)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tải 10.000 sách</strong></td>
+                            <td>Hash Table (1 file JSON)</td>
+                            <td class="highlight-good">50 - 150 ms</td>
+                            <td><code class="highlight-neutral">O(F)</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tìm kiếm theo ID</strong></td>
+                            <td>Hash Table (Dictionary)</td>
+                            <td class="highlight-good">&lt; 1 ms (Tức thì)</td>
+                            <td><code class="highlight-good">O(1)</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thêm sách</strong></td>
+                            <td>Hash Table (Dictionary)</td>
+                            <td class="highlight-neutral">150 - 300 ms</td>
+                            <td><code class="highlight-good">O(1)</code> + <code class="highlight-bad">O(Save)</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tìm kiếm theo Tên</strong></td>
+                            <td>Hash Table (Values)</td>
+                            <td class="highlight-good">5 - 10 ms</td>
+                            <td><code class="highlight-bad">O(N)</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 20px;"><strong>Ghi chú:</strong> Thao tác "Thêm sách" bị chậm chủ yếu do thời gian <strong>Lưu file JSON</strong> (<code>O(Save)</code>) chứ không phải do thao tác <code>Add</code> của Dictionary (vốn là <code>O(1)</code>).</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">5. ĐÁNH GIÁ VÀ KẾT LUẬN</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">5.1. Đánh giá kết quả đạt được</h3>
+                <ul>
+                    <li><strong>Hoàn thành mục tiêu:</strong> Ứng dụng hoạt động ổn định và đáp ứng các yêu cầu.</li>
+                    <li><strong>Chứng minh hiệu suất:</strong> Thử nghiệm đã chứng minh tính ưu việt của Hash Table với độ phức tạp <code class="highlight-good">O(1)</code> cho các thao tác truy xuất chính (Tìm theo ID).</li>
+                    <li><strong>Tối ưu I/O:</strong> Việc dùng 1 file JSON duy nhất đã tối ưu hóa vượt trội thời gian tải ứng dụng khi khởi động.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2 class="slide-title">5. ĐÁNH GIÁ VÀ KẾT LUẬN</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">5.2. Những khó khăn, hạn chế</h3>
+                <ul>
+                    <li><strong>Vấn đề I/O (Nút thắt cổ chai):</strong>
+                        <ul>
+                            <li>Việc <strong>lưu toàn bộ</strong> dữ liệu (<code>SaveAllBooks</code>) ra file JSON mỗi khi Thêm/Xóa/Sửa là một điểm nghẽn.</li>
+                            <li>Nó làm giảm tốc độ thực thi của các thao tác này từ <code class="highlight-good">O(1)</code> (lý thuyết) xuống <code class="highlight-bad">O(Save)</code> (thực tế).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Khả năng va chạm (Collision):</strong>
+                        <ul>
+                            <li>Về lý thuyết, Hash Table có rủi ro va chạm làm giảm hiệu suất.</li>
+                            <li>Tuy nhiên, <code>Dictionary</code> của C# được tối ưu rất tốt nên không ảnh hưởng đáng kể.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Giao diện:</strong> Giao diện Console còn thô sơ.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="slide">
+            <h2 class="slide-title">5. ĐÁNH GIÁ VÀ KẾT LUẬN</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">5.3. Hướng phát triển</h3>
+                <ul>
+                    <li><strong>Cải thiện I/O:</strong>
+                        <ul>
+                            <li>Sử dụng hệ thống Cơ sở dữ liệu (như <strong>SQLite</strong> hoặc <strong>Firebase</strong>).</li>
+                            <li>Lợi ích: Chỉ lưu các thay đổi (Delta changes) thay vì ghi đè toàn bộ file, giúp thao tác Thêm/Xóa/Sửa đạt <code class="highlight-good">O(1)</code> thực sự.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Mở rộng Cấu trúc:</strong>
+                        <ul>
+                            <li>Áp dụng <strong>B-Tree</strong> (hoặc cấu trúc cây) cho phép tìm kiếm theo phạm vi (Range Search).</li>
+                            <li>Ví dụ: Tìm sách xuất bản trong khoảng năm 2010 - 2020.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Giao diện:</strong>
+                        <ul>
+                            <li>Chuyển sang <strong>Web/Desktop</strong> hoặc thư viện Console nâng cao (Spectre.Console).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="slide">
+            <h2 class="slide-title">5. ĐÁNH GIÁ VÀ KẾT LUẬN</h2>
+            <div class="slide-content">
+                <h3 style="border-bottom: none; color: #333;">5.4. Kết luận</h3>
+                <p style="font-size: 1.2em; line-height: 1.7;">
+                    Đồ án đã <strong>thành công</strong> trong việc áp dụng cấu trúc dữ liệu <strong>Hash Table</strong> để giải quyết bài toán hiệu suất trong quản lý thư viện.
+                </p>
+                <p style="font-size: 1.2em; line-height: 1.7;">
+                    Kết quả từ các thử nghiệm trên 10.000 bản ghi đã chứng minh rõ ràng lợi ích về <strong>tốc độ truy xuất (O(1))</strong>.
+                </p>
+                <p style="font-size: 1.2em; line-height: 1.7;">
+                    Qua đó, nhóm đã củng cố thêm kiến thức về tầm quan trọng của việc <strong>lựa chọn cấu trúc dữ liệu phù hợp</strong> với yêu cầu bài toán.
+                </p>
+            </div>
+        </section>
+
+        <section class="slide title-slide thank-you-slide">
+            <h1>THANK YOU FOR WATCHING</h1>
+        </section>
+
+    </div>
+
+    <button id="prevBtn" class="nav-btn">&larr;</button>
+    <button id="nextBtn" class="nav-btn">&rarr;</button>
+    <div id="slideCounter"></div>
+
+</body>
+</html>
